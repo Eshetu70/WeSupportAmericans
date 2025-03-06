@@ -50,7 +50,7 @@
             left: 20px;
             font-size: 30px;
             cursor: pointer;
-            color: white;
+            color: #FFD700;
             z-index: 20;
         }
         .dropdown-menu {
@@ -220,11 +220,13 @@
     }
 
     /* Hide h1 on mobile */
+    /* Mobile Version */
     @media (max-width: 768px) {
         h1 {
             font-size: 28px; /* Smaller font for mobile */
+            text-transform: none; /* Normal text (no capitalization) */
+            color: #FFD700; /* Golden color */
             text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-            -webkit-text-fill-color: white; /* Solid color instead of gradient */
             background: none; /* Remove gradient for readability */
             display: block; /* Ensure it shows on mobile */
             padding: 10px;
