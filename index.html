@@ -221,19 +221,34 @@
 
     /* Hide h1 on mobile */
     /* Mobile Version */
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 28px; /* Smaller font for mobile */
-            text-transform: none; /* Normal text (no capitalization) */
-            color: #FFD700; /* Golden color */
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-            background: none; /* Remove gradient for readability */
-            display: block; /* Ensure it shows on mobile */
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
+   @media (max-width: 768px) {
+    h1 {
+        font-size: 28px; /* Smaller font for mobile */
+        text-transform: none; /* Normal text (no capitalization) */
+        font-weight: bold;
+        text-align: center;
+        display: block;
+        padding: 10px;
+        
+        /* Magic shimmer effect */
+        background: linear-gradient(90deg, #FFD700, #FF4500, #FFD700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: shimmer 3s infinite linear;
+
+        /* Text shadow for depth */
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     }
+
+    /* Shimmer effect animation */
+    @keyframes shimmer {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+}
+
 
         
     </style>
