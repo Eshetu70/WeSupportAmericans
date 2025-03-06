@@ -201,6 +201,31 @@
         }
 
 
+          h1 {
+        font-size: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 3px;
+        background: linear-gradient(90deg, #FFD700, #FF4500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hide h1 on mobile */
+    @media (max-width: 768px) {
+        h1 {
+            display: none;
+        }
+    }
+
          @media screen and (max-width: 768px) {
             header {
                 font-size: 24px;
@@ -241,7 +266,7 @@
            
             <a onclick="showContent('contact-content')">Contact</a>
         </div>
-        WE SUPPORT AMERICA - Dedicated to Cleaning & Home Improvement
+       <h1>WE SUPPORT AMERICA - Dedicated to Cleaning & Home Improvement</h1>
     </header>
     <nav>
         <a onclick="showContent('about-content')">About Us</a>
