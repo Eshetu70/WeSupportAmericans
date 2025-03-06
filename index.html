@@ -222,25 +222,18 @@
     /* Hide h1 on mobile */
     @media (max-width: 768px) {
         h1 {
-            display: none;
+            font-size: 28px; /* Smaller font for mobile */
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            -webkit-text-fill-color: white; /* Solid color instead of gradient */
+            background: none; /* Remove gradient for readability */
+            display: block; /* Ensure it shows on mobile */
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
         }
     }
 
-         @media screen and (max-width: 768px) {
-            header {
-                font-size: 24px;
-                padding: 30px 10px;
-                background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png') no-repeat center center/cover;
-            }
-            header::after {
-                content: "WE SUPPORT AMERICA";
-                display: block;
-                text-align: center;
-                font-size: 22px;
-                font-weight: bold;
-                color: teal;
-            }
-        }
+        
     </style>
     <script>
         function showContent(sectionId) {
