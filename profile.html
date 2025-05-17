@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Orders | Community Kitchen Cafe</title>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 0; }
+    header { background-color: #131921; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .container { max-width: 1000px; margin: 40px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    h2 { color: #007b8f; margin-bottom: 20px; }
+    .order { border-bottom: 1px solid #ddd; padding: 15px 0; }
+    .order h3 { margin: 0 0 5px; }
+    .order ul { padding-left: 20px; margin: 5px 0; }
+    .order ul li { margin-bottom: 5px; }
+    .total, .date { font-weight: bold; color: #333; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Community Kitchen Cafe</h1>
+    <div>Your Orders</div>
+  </header>
+
+  <div class="container">
+    <h2>Order History</h2>
+    <div id="orders"></div>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD4DGWnXcK8tI0eExe7B7lsBsbT78zwXp4",
+      authDomain: "auth-5a12b.firebaseapp.com",
+      projectId: "auth-5a12b",
+      storageBucket: "auth-5a12b.appspot.com",
+      messagingSenderId: "1022649726429",
+      appId: "1:1022649726429:web:b07f8ee9ddb30360a2f234"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        alert("Please log in to view your orders.");
+        window.location.href = "index.html";
+        return;
+      }
+
+      db.collection("orders")
+        .where("email", "==", user.email)
+        .orderBy("createdAt", "desc")
+        .get()
+        .then(snapshot => {
+          const container = document.getElementById("orders");
+          if (snapshot.empty) {
+            container.innerHTML = "<p>You have no orders yet.</p>";
+            return;
+          }
+
+          snapshot.forEach(doc => {
+            const order = doc.data();
+            const div = document.createElement("div");
+            div.className = "order";
+            div.innerHTML = `
+              <h3>Order by ${order.payer || user.email}</h3>
+              <ul>
+                ${order.items.map(i => `<li>${i.name} - $${i.price.toFixed(2)}</li>`).join("")}
+              </ul>
+              <div class="total">Total: $${order.total.toFixed(2)}</div>
+              <div class="date">Date: ${new Date(order.createdAt.seconds * 1000).toLocaleString()}</div>
+            `;
+            container.appendChild(div);
+          });
+        })
+        .catch(err => {
+          document.getElementById("orders").innerHTML = `<p>Error: ${err.message}</p>`;
+        });
+    });
+  </script>
+
+  <footer>
+  <p>&copy; 2025 Community Kitchen Cafe. All rights reserved.</p>
+  <p><a href="mailto:info@communitycafe.com">info@communitycafe.com</a> | <a href="tel:+19802392234">(980) 239-2234</a></p>
+  <p>4808 Central Ave, Charlotte, NC 28205</p>
+  <p>Fresh. Local. With Purpose.</p>
+</footer>
+</body>
+</html>

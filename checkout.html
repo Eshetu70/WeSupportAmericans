@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Community Kitchen Cafe</title>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 0; }
+    header { background-color: #131921; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .cart-summary { margin-bottom: 30px; }
+    .cart-summary ul { list-style: none; padding: 0; }
+    .cart-summary li { padding: 10px 0; border-bottom: 1px solid #ddd; }
+    .total { font-weight: bold; font-size: 1.2em; margin-top: 10px; }
+    #paypal-button-container { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Community Kitchen Cafe</h1>
+    <div>Checkout</div>
+  </header>
+
+  <div class="container">
+    <h2>Order Summary</h2>
+    <div class="cart-summary">
+      <ul id="cart-list"></ul>
+      <p class="total">Total: $<span id="cart-total">0.00</span></p>
+    </div>
+    <div id="paypal-button-container"></div>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD4DGWnXcK8tI0eExe7B7lsBsbT78zwXp4",
+      authDomain: "auth-5a12b.firebaseapp.com",
+      projectId: "auth-5a12b",
+      storageBucket: "auth-5a12b.appspot.com",
+      messagingSenderId: "1022649726429",
+      appId: "1:1022649726429:web:b07f8ee9ddb30360a2f234"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function renderCart() {
+      const list = document.getElementById("cart-list");
+      const total = document.getElementById("cart-total");
+      list.innerHTML = "";
+      let sum = 0;
+      cart.forEach(item => {
+        list.innerHTML += `<li>${item.name} - $${item.price.toFixed(2)}</li>`;
+        sum += item.price;
+      });
+      total.textContent = sum.toFixed(2);
+    }
+
+    renderCart();
+
+    paypal.Buttons({
+      createOrder: (data, actions) => {
+        const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+        return actions.order.create({
+          purchase_units: [{ amount: { value: totalAmount.toFixed(2) } }]
+        });
+      },
+      onApprove: (data, actions) => {
+        return actions.order.capture().then(details => {
+          const user = firebase.auth().currentUser;
+          if (!user) {
+            alert("Please log in first.");
+            return;
+          }
+
+          db.collection("orders").add({
+            email: user.email,
+            items: cart,
+            total: cart.reduce((sum, item) => sum + item.price, 0),
+            createdAt: new Date(),
+            payer: details.payer.name.given_name
+          }).then(() => {
+            alert("Thank you! Your order has been placed.");
+            localStorage.removeItem("cart");
+            window.location.href = "profile.html";
+          }).catch(err => {
+            alert("Error saving order: " + err.message);
+          });
+        });
+      }
+    }).render("#paypal-button-container");
+  </script>
+
+  <footer>
+  <p>&copy; 2025 Community Kitchen Cafe. All rights reserved.</p>
+  <p><a href="mailto:info@communitycafe.com">info@communitycafe.com</a> | <a href="tel:+19802392234">(980) 239-2234</a></p>
+  <p>4808 Central Ave, Charlotte, NC 28205</p>
+  <p>Fresh. Local. With Purpose.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu | Community Kitchen Cafe</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Community Kitchen Cafe</h1>
+    <nav>
+      <a href="menu.html">Menu</a>
+      <a href="cart.html">Cart</a>
+      <a href="profile.html">My Orders</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Our Menu</h2>
+    <div class="menu">
+      <div class="menu-item"><h3>Raw Beef</h3><p>$10.99</p><button onclick="addToCart('Raw Beef', 10.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Kitfo</h3><p>$11.99</p><button onclick="addToCart('Kitfo', 11.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Yetashe Kitfo</h3><p>$12.99</p><button onclick="addToCart('Yetashe Kitfo', 12.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Geba Weta</h3><p>$13.99</p><button onclick="addToCart('Geba Weta', 13.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Lega Tibs</h3><p>$10.49</p><button onclick="addToCart('Lega Tibs', 10.49, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Yeshekla Tibs</h3><p>$10.49</p><button onclick="addToCart('Yeshekla Tibs', 10.49, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Awaze Tibs</h3><p>$10.49</p><button onclick="addToCart('Awaze Tibs', 10.49, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Gomen Besega</h3><p>$9.49</p><button onclick="addToCart('Gomen Besega', 9.49, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Misir Besega</h3><p>$8.99</p><button onclick="addToCart('Misir Besega', 8.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Sega Firfir</h3><p>$9.99</p><button onclick="addToCart('Sega Firfir', 9.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Tibbs Firfir</h3><p>$10.99</p><button onclick="addToCart('Tibbs Firfir', 10.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Firfir</h3><p>$8.49</p><button onclick="addToCart('Firfir', 8.49, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Veggie Combo V/VE</h3><p>$9.99</p><button onclick="addToCart('Veggie Combo V/VE', 9.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Birndo Dulet V/VE</h3><p>$10.99</p><button onclick="addToCart('Birndo Dulet V/VE', 10.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Shiro Wot</h3><p>$7.99</p><button onclick="addToCart('Shiro Wot', 7.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Dulet</h3><p>$10.99</p><button onclick="addToCart('Dulet', 10.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Melas Senber</h3><p>$9.99</p><button onclick="addToCart('Melas Senber', 9.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Birndo Firfir</h3><p>$8.99</p><button onclick="addToCart('Birndo Firfir', 8.99, '')">Add to Cart</button></div>
+      <div class="menu-item"><h3>Birndo Combo</h3><p>$12.49</p><button onclick="addToCart('Birndo Combo', 12.49, '')">Add to Cart</button></div>
+    </div>
+  </div>
+
+  <script>
+    const firebaseConfig = { /* your config */ };
+    firebase.initializeApp(firebaseConfig);
+    firebase.auth();
+
+    function addToCart(name, price, image_url) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name, price, image_url });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart`);
+    }
+  </script>
+
+  <footer>
+  <p>&copy; 2025 Community Kitchen Cafe. All rights reserved.</p>
+  <p><a href="mailto:info@communitycafe.com">info@communitycafe.com</a> | <a href="tel:+19802392234">(980) 239-2234</a></p>
+  <p>4808 Central Ave, Charlotte, NC 28205</p>
+  <p>Fresh. Local. With Purpose.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay with Chapa</title>
+</head>
+<body>
+
+    <h2>Secure Payment with Chapa</h2>
+
+    <form method="POST" action="https://api.chapa.co/v1/hosted/pay">
+        <!-- Replace 'YOUR_PUBLIC_API_KEY' with your actual public API key -->
+        <input type="hidden" name="public_key" value="YOUR_PUBLIC_API_KEY" />
+        
+        <!-- Unique transaction reference (must be unique for each transaction) -->
+        <input type="hidden" name="tx_ref" value="negade-tx-12345678sss9" />
+        
+        <!-- Payment amount -->
+        <input type="hidden" name="amount" value="10" />
+        
+        <!-- Currency (Ethiopian Birr) -->
+        <input type="hidden" name="currency" value="ETB" />
+        
+        <!-- Customer details -->
+        <input type="hidden" name="email" value="israel@negade.et" />
+        <input type="hidden" name="first_name" value="Israel" />
+        <input type="hidden" name="last_name" value="Goytom" />
+        
+        <!-- Payment title and description -->
+        <input type="hidden" name="title" value="Let us do this" />
+        <input type="hidden" name="description" value="Paying with Confidence with Chapa" />
+        
+        <!-- Business logo (optional) -->
+        <input type="hidden" name="logo" value="https://chapa.link/asset/images/chapa_swirl.svg" />
+        
+        <!-- Callback and return URLs -->
+        <input type="hidden" name="callback_url" value="https://example.com/callbackurl" />
+        <input type="hidden" name="return_url" value="https://example.com/returnurl" />
+        
+        <!-- Meta data (optional) -->
+        <input type="hidden" name="meta[title]" value="test" />
+
+        <!-- Payment button -->
+        <button type="submit">Pay Now</button>
+    </form>
+
+</body>
+</html>

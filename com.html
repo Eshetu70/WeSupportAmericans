@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WE SUPPORT AMERICA - Professional Cleaning & Home Improvement</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <meta name="description" content="WE SUPPORT AMERICA provides top-quality cleaning and home improvement services, specializing in residential and commercial solutions, fence and deck patio work, house remodeling, and more.">
+    <meta name="keywords" content="cleaning services, home improvement, fence installation, deck patio work, house remodeling, commercial cleaning, residential cleaning">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="WE SUPPORT AMERICA">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,fr,de,zh-CN,ar',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 50px 10px;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            position: relative;
+        }
+        .menu-icon {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #FFD700;
+            z-index: 20;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            min-width: 150px;
+            z-index: 20;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .dropdown-menu a:hover {
+            background: #ddd;
+        }
+        h3{
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #3C3B6E;
+            padding: 15px;
+            position: relative;
+            top: 0;
+            z-index: 15;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .translate-icon {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+
+
+        .image-gallery {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-gallery img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        .content-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+            display: none;
+        }
+        #about-content {
+            display: block;
+        }
+        .golden-list li {
+            list-style: none;
+            padding-left: 25px;
+            position: relative;
+        }
+        .golden-list li::before {
+            content: "\2605";
+            color: gold;
+            font-size: 18px;
+            position: absolute;
+            left: 0;
+        }
+        footer {
+            background: #3C3B6E;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+        footer {
+            background: #3C3B6E;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+            text-align: left;
+        }
+        .footer-section {
+            flex: 1;
+            padding: 10px;
+            min-width: 250px;
+        }
+        .footer-section h3 {
+            border-bottom: 2px solid gold;
+            padding-bottom: 5px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 5px 0;
+        }
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+        .social-icons a {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+
+          h1 {
+        font-size: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 3px;
+        background: linear-gradient(90deg, #FFD700, #FF4500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hide h1 on mobile */
+   /* Mobile Version */
+@media (max-width: 768px) {
+    header {
+        height: 65px; /* Reduced height for mobile */
+        padding: 5px 15px;
+        margin: 5px!important;
+    }
+S
+    nav {
+        height: 30px; /* Adjusted nav height */
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller font for mobile */
+        text-transform: none;
+        font-weight: bold;
+        text-align: center;
+        display: none; /* Hide H1 on mobile */
+        padding: 10px;
+
+        /* Magic shimmer effect */
+        background: linear-gradient(90deg, #FFD700, #FF4500, #FFD700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: shimmer 3s infinite linear;
+
+        /* Text shadow for depth */
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Hide H2 on mobile */
+    h2 {
+        display: none;
+    }
+
+    /* Background Video */
+    body {
+        background: none;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('path-to-american-flag-video.mp4') no-repeat center center/cover;
+        z-index: -1;
+    }
+
+    /* Shimmer effect animation */
+    @keyframes shimmer {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+}
+
+
+        
+    </style>
+    <script>
+        function showContent(sectionId) {
+            document.querySelectorAll('.content-box').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+        function toggleMenu() {
+            var menu = document.getElementById('dropdown-menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div id="google_translate_element" class="translate-icon"></div>
+        <div id="dropdown-menu" class="dropdown-menu">
+            <a onclick="showContent('about-content')">About Us</a>
+            <a onclick="showContent('services-content')">Services</a>
+            <a onclick="showContent('fence-content')">Fence</a>
+           
+            <a onclick="showContent('contact-content')">Contact</a>
+        </div>
+        <h1>WE SUPPORT AMERICA - Dedicated to Cleaning & Home Improvement</h1>
+    </header>
+    <nav>
+        <a onclick="showContent('about-content')">About Us</a>
+        <a onclick="showContent('services-content')">Services</a>
+        <a onclick="showContent('fence-content')">Fence</a>
+       
+        <a onclick="showContent('contact-content')">Contact</a>
+    </nav>
+    <main>
+
+        <div id="about-content" class="content-box">
+
+           
+            <h3>About Us</h3>
+
+            <div class="image-gallery">
+                <img src="images/TNA-Concrete-Types-of-Fences-Cover.jpg" alt="Fence Work">
+                
+            </div>
+            <p>WE SUPPORT AMERICAN is a professional cleaning and home improvement company dedicated to serving both residential and commercial clients. We provide top-quality cleaning services, ensuring a spotless and healthy environment. In addition to cleaning, we specialize in fence and deck patio work, patio installation, house remodeling, home additions, and fencing. Our commitment to excellence and customer satisfaction is evident in every project we undertake.</p>
+            <h1>Cleaning Services by We Support American 🧼✨</h1>
+            <p>At <strong>We Support American</strong>, we are <strong>highly experienced</strong> in providing top-quality cleaning services for <strong>residential, commercial, and industrial spaces</strong>. Our team is committed to ensuring a clean, sanitized, and organized environment.</p>
+    
+            <h3>🏡 Residential Cleaning</h3>
+            <p>We make your home fresh, clean, and healthy with our professional services:</p>
+            <ul class="golden-list">
+                <li>Regular House Cleaning – Dusting, vacuuming, mopping, and surface disinfecting.</li>
+                <li>Deep Cleaning – Thorough cleaning of kitchens, bathrooms, and bedrooms.</li>
+                <li>Move-In/Move-Out Cleaning – Preparing homes for new occupants.</li>
+                <li>Carpet & Upholstery Cleaning – Removing stains, dirt, and allergens.</li>
+                <li>Window Cleaning – Streak-free cleaning of interior and exterior windows.</li>
+            </ul>
+    
+            <h3>🏢 Commercial & Office Cleaning</h3>
+            <p>A clean workspace enhances productivity and professionalism:</p>
+            <ul class="golden-list">
+                <li>Office Cleaning – Sanitizing desks, floors, restrooms, and break areas.</li>
+                <li>Retail Store Cleaning – Keeping storefronts, fitting rooms, and display areas pristine.</li>
+                <li>Restaurant & Kitchen Cleaning – Deep cleaning for safe and hygienic dining spaces.</li>
+                <li>Janitorial Services – Daily, weekly, or customized cleaning schedules.</li>
+            </ul>
+            <div class="image-gallery">
+                <img src="images/commercial-office-cleaning.jpg" alt="Fence Work">
+                
+            </div>
+
+
+    
+            <h3>🏭 Industrial & Specialized Cleaning</h3>
+            <p>We provide deep cleaning solutions for industrial and post-construction sites:</p>
+            <ul class="golden-list">
+                <li>Post-Construction Cleaning – Removing debris, dust, and construction materials.</li>
+                <li>Medical Facility Cleaning – Disinfecting hospitals and healthcare centers.</li>
+                <li>Warehouse & Factory Cleaning – Cleaning large workspaces and machinery.</li>
+            </ul>
+            <div class="image-gallery">
+                <img src="images/bigstock-Cleaning-Machine-Professional-391559204-scaled.jpg" alt="Fence Work">
+                
+            </div>
+    
+            <h3>🌿 Power Washing & Exterior Cleaning</h3>
+            <p>Enhance the appearance of your property with our exterior cleaning services:</p>
+            <ul class="golden-list">
+                <li>Pressure Washing – Cleaning driveways, sidewalks, and parking lots.</li>
+                <li>Roof & Siding Cleaning – Removing mold, dirt, and buildup.</li>
+                <li>Gutter Cleaning – Ensuring proper drainage and preventing blockages.</li>
+            </ul>
+    
+            <h2>Why Choose We Support American? ✅</h2>
+            <ul class="golden-list">
+                <li><strong>Highly Experienced Team</strong> – Skilled professionals delivering top results.</li>
+                <li><strong>Reliable & Efficient</strong> – We ensure precision and attention to detail.</li>
+                <li><strong>Eco-Friendly Cleaning Solutions</strong> – Safe for your family and the environment.</li>
+                <li><strong>Affordable & Flexible</strong> – Custom cleaning plans to fit your budget.</li>
+            </ul>
+        </div>
+
+
+        <div id="services-content" class="content-box">
+            <h3>Our Services</h3>
+            <h4>Fence Work Services</h4>
+            <ul class="golden-list">
+                <li> Fence Installation: Wood, metal, vinyl, chain link, aluminum, composite, and wrought iron fences.</li>
+                <li> Fence Repair: Fixing broken panels, leaning posts, and structural damages.</li>
+                <li> Fence Maintenance: Regular cleaning, staining, painting, and power washing.</li>
+                <li> Custom Fence Building: Privacy fences, security fences, and decorative fences.</li>
+                <li> Gates and Access Control: Manual and automatic gate installation and repairs.</li>
+                <li> Fence Removal: Safe and efficient removal of old or damaged fences.</li>
+            </ul>
+            <div class="image-gallery">
+                <img src="images/history-of-fences.jpg" alt="Fence Work">
+                
+            </div>
+            <h4>Wood Work Services</h4>
+            <ul class="golden-list">
+                <li> Custom Woodwork & Carpentry: Custom cabinets, decks, gazebos, and staircases.</li>
+                <li> Wood Floor Installation & Refinishing: Hardwood, laminate, and protective coatings.</li>
+                <li> Wood Restoration & Repairs: Fixing scratches, cracks, termite damage, and water damage.</li>
+                <li> Custom Deck & Pergola Construction: High-quality treated wood decks and patios.</li>
+                <li> Staining & Sealing Services: Protective coatings for enhanced durability.</li>
+            </ul>
+            <div class="image-gallery">
+                <img src="images/maxresdefault.jpg" alt="Fence Work">
+                
+            </div>
+            <h4>Cleaning Services</h4>
+            <ul class="golden-list">
+                <li>Residential Cleaning: Deep cleaning kitchens, bathrooms, and living spaces.</li>
+                <li> Commercial Cleaning: Offices, warehouses, and retail spaces.</li>
+                <li> Post-Construction Cleaning: Removing dust, debris, and construction residue.</li>
+                <li> Move-In / Move-Out Cleaning: Sanitizing and disinfecting properties.</li>
+                <li> Power Washing Services: Driveways, fences, decks, and building exteriors.</li>
+                <li> Specialty Cleaning Services: Carpet stain removal, air duct cleaning, and sanitization.</li>
+            </ul>
+            <h4>Why Choose Us?</h4>
+            <ul class="golden-list">
+                <li> High-Quality Workmanship – Using top-grade materials and expert techniques.</li>
+                <li> Experienced Professionals – Skilled team ensuring precision and detail.</li>
+                <li> Customer Satisfaction Guaranteed – Tailored solutions for every client.</li>
+                <li>Affordable Pricing – Competitive rates without compromising quality.</li>
+            </ul>
+            <p>📞 Contact Us Today for a free estimate on fence work, woodwork, or cleaning services!</p>
+        </div>
+        <div id="fence-content" class="content-box">
+            <h3>Fence Work Services</h3>
+            <p>We specialize in fence work for private properties and companies, customizing our services based on your needs.</p>
+            <ul class="golden-list">
+                <li>Fence Installation – High-quality materials and expert setup.</li>
+                <li>Fence Repair – Fixing damages from weather or accidents.</li>
+                <li>Fence Maintenance – Painting, staining, cleaning, and upkeep.</li>
+                <li>Custom Fence Building – Privacy, security, and decorative fences.</li>
+                <li>Gates and Access Control – Secure and automated gate solutions.</li>
+                <li>Fence Removal – Safe removal and disposal of old fences.</li>
+            </ul>
+        </div>
+        <div id="contact-content" class="content-box" style="max-width: 800px; margin: auto; padding: 30px; background: #f8f9fa; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+            <h2 style="color: #2c3e50; font-size: 32px; font-weight: 700; margin-bottom: 15px;">📞 Contact Us</h2>
+            <p style="font-size: 18px; color: #555;">We're here to assist you. Reach out to us for any inquiries or support.</p>
+        
+            <div style="margin: 20px 0; padding: 15px; background: #ffffff; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+                <p style="font-size: 18px;"><strong>📍 Address:</strong> 
+                    <a href="https://www.google.com/maps?q=811+N+Charlotte+Ave,+Monroe,+NC+28110" target="_blank" style="color: #007bff; text-decoration: none;">
+                        811 N Charlotte Ave, Monroe, NC 28110
+                    </a>
+                </p>
+                <p style="font-size: 18px;"><strong>📞 Phone:</strong> <a href="tel:+12406784014" style="color: #007bff; text-decoration: none;">(240) 678-4014</a></p>
+                <p style="font-size: 18px;"><strong>📧 Email:</strong> <a href="mailto:robelmamo9@gmail.com" style="color: #007bff; text-decoration: none;">robelmamo9@gmail.com</a></p>
+            </div>
+        
+            <h2 style="color: #2c3e50; font-size: 28px; font-weight: 700; margin-top: 30px;">💳 Payment Information</h2>
+            <p style="font-size: 18px; color: #555;">Secure and convenient payment options available.</p>
+        
+            <div style="margin: 20px 0; padding: 15px; background: #ffffff; border-radius: 8px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+                <p style="font-size: 18px;"><strong>📝 Check:</strong> Payable to <span style="color: #2c3e50; font-weight: bold;">WE SUPPORT AMERICA</span></p>
+                <p style="font-size: 18px;"><strong>🏦 Credit Card Payments:</strong> Accepted at the above address.</p>
+                <p style="font-size: 18px;"><strong>💰 PayPal:</strong> 
+                    <a href="https://www.paypal.com" target="_blank" style="color: #007bff; text-decoration: none; font-weight: bold;">
+                        Click here to pay via PayPal
+                    </a>
+                </p>
+            </div>
+        
+            <div style="margin-top: 30px;">
+                <a href="mailto:robelmamo9@gmail.com" style="display: inline-block; background: #007bff; color: #fff; padding: 12px 25px; border-radius: 5px; font-size: 18px; text-decoration: none; font-weight: bold;">
+                    📩 Send Us an Email
+                </a>
+            </div>
+        </div>
+        
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>WE SUPPORT AMERICA provides professional cleaning, fence installation, home improvement, and remodeling services for residential and commercial clients.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about-content">About Us</a></li>
+                    <li><a href="#services-content">Services</a></li>
+                    <li><a href="#contact-content">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><strong>Address:</strong> <a href="https://www.google.com/maps?q=811+N+Charlotte+Ave,+Monroe,+NC+28110" target="_blank">811 N Charlotte Ave, Monroe, NC 28110</a></p>
+                <p><strong>Phone:</strong> (240) 678-414</p>
+                <p><strong>Email:</strong> <a href="mailto:robelmamo9@gmail.com">robelmamo9@gmail.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2025 WE SUPPORT AMERICA - All Rights Reserved</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+     <!-- FontAwesome Icons (Make Sure This is in Your Page) -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+     crossorigin="anonymous"></script>
+</body>
+</html>
